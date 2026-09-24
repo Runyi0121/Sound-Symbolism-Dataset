@@ -1,0 +1,20 @@
+# Staging cache used by export_to_repo.py — distinct images keyed by md5,
+# expanded into each set's images/ folder. Not part of the dataset.
+.image_cache/
+
+# Partial downloads
+*.part
+
+# macOS
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Credentials — never commit these
+credentials.json
+token*.json

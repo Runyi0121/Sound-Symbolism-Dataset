@@ -1,0 +1,78 @@
+{
+  "recording_start": 1777388777.828768,
+  "fps": 15,
+  "width": 2560,
+  "height": 1440,
+  "scale_factor": 1.0,
+  "frame_count": 17,
+  "frames": [
+    {
+      "frame": 0,
+      "timestamp": 1777388777.833309
+    },
+    {
+      "frame": 1,
+      "timestamp": 1777388807.886289
+    },
+    {
+      "frame": 2,
+      "timestamp": 1777388837.9137752
+    },
+    {
+      "frame": 3,
+      "timestamp": 1777388867.93193
+    },
+    {
+      "frame": 4,
+      "timestamp": 1777388897.954648
+    },
+    {
+      "frame": 5,
+      "timestamp": 1777388928.0019798
+    },
+    {
+      "frame": 6,
+      "timestamp": 1777388958.023992
+    },
+    {
+      "frame": 7,
+      "timestamp": 1777388988.0422988
+    },
+    {
+      "frame": 8,
+      "timestamp": 1777389018.092105
+    },
+    {
+      "frame": 9,
+      "timestamp": 1777389048.141428
+    },
+    {
+      "frame": 10,
+      "timestamp": 1777389078.1864462
+    },
+    {
+      "frame": 11,
+      "timestamp": 1777389108.227833
+    },
+    {
+      "frame": 12,
+      "timestamp": 1777389138.248279
+    },
+    {
+      "frame": 13,
+      "timestamp": 1777389168.274569
+    },
+    {
+      "frame": 14,
+      "timestamp": 1777389198.305181
+    },
+    {
+      "frame": 15,
+      "timestamp": 1777389228.354846
+    },
+    {
+      "frame": 16,
+      "timestamp": 1777389258.385464
+    }
+  ]
+}
