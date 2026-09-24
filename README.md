@@ -109,7 +109,7 @@ timestamp.
 
 ### Coverage caveats
 
-- **`Sets 4 and 28`** have no gaze data per technical failures. Response sheets and stimuli are present.
+- **`set04 and set28`** have no gaze data per technical failures. Response sheets and stimuli are present.
 - **`set01`** has only two sessions, `S1`–`S2`.
 - **`set34`** has `S1` split across two files — `set34_P34_S1_1_gaze_data.json` and
   `set34_P34_S1_2_gaze_data.json`
