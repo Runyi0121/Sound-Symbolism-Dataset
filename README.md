@@ -1,4 +1,4 @@
-# Sound-Symbolism-Dataset
+# Sound Symbolism Dataset
 
 Per-set dataset for the sound symbolism human experiment. Each folder contains everything
 for one stimulus set: the image set, the subject's
