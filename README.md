@@ -54,7 +54,7 @@ whenever it was paired with a different word.
 
 ## Response sheets
 
-`response_set{NN}_P{subject}` is a Google Sheet, one tab, 186 rows — one per trial,
+`response_set{NN}_P{subject}` is a csv file, one tab, 186 rows — one per trial,
 ordered by `trial_index`.
 
 | Column | Meaning |
