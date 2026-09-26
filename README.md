@@ -17,6 +17,11 @@ sound symbolism data collection/
     set01_P01_S1_frame_timestamps.json   screen-recording frame timing, session 1
     set01_P01_S2_gaze_data.json
     set01_P01_S2_frame_timestamps.json
+    P01/
+      trial_001_image.json.gz    the image-viewing phase of trial 1
+      trial_001_word.json.gz     the word-viewing phase of trial 1
+      trial_002_image.json.gz
+      ...
   set02/
   ...
   set55/
@@ -25,7 +30,7 @@ sound symbolism data collection/
 | | |
 |---|---|
 | Set folders | 55 (`set01` … `set55`) |
-| Images | 10,230 (186 per set) |
+| Images | 184 distinct shape pairs, 2 layouts per pair | (186 per set) |
 | Response sheets | 55 |
 | Eye-tracking JSON files | 318 |
 
@@ -106,6 +111,81 @@ track. Timestamps are Unix epoch seconds.
 
 Both files share the same epoch clock, so gaze samples align to video frames by
 timestamp.
+
+
+## Per-trial gaze segments
+
+`PNN/` holds the session gaze recording cut into individual trials, with
+each trial split into its two viewing phases:
+
+```
+  trial_001_image.json.gz    the image-viewing phase of trial 1
+  trial_001_word.json.gz     the word-viewing phase of trial 1
+```
+
+Files stay gzipped — around 10 KB each, ~16,400 files in total.
+
+Filenames repeat across subjects (every folder has its own
+`trial_185_word.json.gz`)
+
+### What's in a trial file
+
+Each is a single JSON object holding the trial
+metadata, the analysis that verified it, and the gaze itself.
+
+| Field group | Fields |
+|---|---|
+| Identity | `participant_id`, `session_dir`, `trial_index`, `slide_type` |
+| Stimulus | `word`, `word_type`, `master_image_file`, `layout` |
+| Timing | `start_frame`, `end_frame_exclusive`, `mid_frame`, `start_timestamp`, `end_timestamp_exclusive`, `duration_sec` |
+| Screen | `screen_width`, `screen_height`, `original_video_size`, `image_panel_bounds_video_xywh`, `coordinates`, `boundary_convention` |
+| Verification | `alignment_status`, `observed_word`, `ocr_confidence`, `observed_image`, `image_match_mae`, `image_interval_status` |
+| Gaze | `gaze_sample_count`, `gaze_sequence_count`, `max_gaze_gap_sec`, `gaze_sequences` |
+| Provenance | `original_sheet_word`, `analysis_word_override`, `word_override_reason`, `verified_presentation_count`, `presentation_index`, `presentation_selection_policy`, `terminal_segment_truncated` |
+
+`gaze_sequences` is a list of contiguous runs of gaze samples, each with its own
+`sequence_index`, `start_timestamp`, `end_timestamp` and `duration_sec`. A trial
+is split into several sequences wherever tracking dropped out;
+`max_gaze_gap_sec` bounds the largest such gap.
+
+Timestamps share the epoch clock used by `*_gaze_data.json` and
+`*_frame_timestamps.json`, so trial segments line up with the full session
+recording and the screen video.
+
+### Verification status
+
+Every one of the ~16,400 trial files reports
+`alignment_status: accepted_exact_word_and_image` — the word shown on screen was
+confirmed by OCR and the image by pixel comparison. 
+No stimulus label was revised during analysis.
+
+### Coverage
+
+- **53 of 55 subjects.** `set04` and `set28` have no session gaze data.
+- **Trial coverage is partial and uneven.** Against 186 trials per set,
+  subjects median is 165. 8, 208 trials
+  are covered in total. Only trials the analysis could verify exactly are
+  included, so a missing `trial_N_*.json.gz` means that trial was not
+  confirmable. Check per-subject counts before any
+  analysis that assumes balanced trials.
+
+  Lowest coverage: P33 (42), P15 (54), P45 (92), P51 (99), P12 (112).
+
+- Every included trial has both an `_image` and a `_word` file — verified, no
+  subject has an unpaired set.
+
+### Reading a trial file
+
+```python
+import gzip, json
+
+with gzip.open("set02/P02/trial_001_image.json.gz") as fh:
+    trial = json.load(fh)
+
+print(trial["word"], trial["duration_sec"], trial["gaze_sample_count"])
+for seq in trial["gaze_sequences"]:
+    print(seq["sequence_index"], seq["duration_sec"])
+```
 
 ### Coverage caveats
 
