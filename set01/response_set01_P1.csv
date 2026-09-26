@@ -29,7 +29,7 @@ set_number,trial_index,master_image_file,layout,word,word_type,correct_side,orig
 1,28,pair_05_sharp-left.png,sharp-left,TAYTAY,pseudoword,A,5,A
 1,29,pair_116_sharp-left.png,sharp-left,NAHNOO,pseudoword,B,116,B
 1,30,pair_01_round-left.png,round-left,MALUMA,canonical,A,1,A
-1,31,pair_174_round-left.png,round-left,PEE,pseudoword,B,174,A
+1,31,pair_174_round-left.png,round-left,PEEPEE,pseudoword,B,174,A
 1,32,pair_88_round-left.png,round-left,LOHNOO,pseudoword,A,88,A
 1,33,pair_98_sharp-left.png,sharp-left,LOOLOH,pseudoword,B,98,B
 1,34,pair_94_round-left.png,round-left,LOONOH,pseudoword,A,94,A
@@ -87,7 +87,7 @@ set_number,trial_index,master_image_file,layout,word,word_type,correct_side,orig
 1,86,pair_165_round-left.png,round-left,LAHMAH,pseudoword,A,165,A
 1,87,pair_41_sharp-left.png,sharp-left,NAHNAH,pseudoword,B,41,B
 1,88,pair_23_sharp-left.png,sharp-left,TUHTEE,pseudoword,A,23,B
-1,89,pair_171_round-left.png,round-left,"NOT THINKING ABOUT CHINESE AT TIME, NO EXPLANATION",pseudoword,A,171,A
+1,89,pair_171_round-left.png,round-left,MAHLAH,pseudoword,A,171,A
 1,90,pair_07_sharp-left.png,sharp-left,BOUBA,canonical,B,7,B
 1,91,pair_135_sharp-left.png,sharp-left,KUHTEE,pseudoword,A,135,A
 1,92,pair_103_round-left.png,round-left,NAHLOO,pseudoword,A,103,B
